@@ -1,5 +1,6 @@
 require('dotenv').config()
 require('./config/passport-setup');
+require('./db/mongoose');
 const express = require('express');
 const authRoutes = require('./routes/auth-routes');
 
