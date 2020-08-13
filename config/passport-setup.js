@@ -7,11 +7,12 @@ passport.serializeUser((user, done) => {
   done(null, user.id); // first param is error
 });
 
-// ID is sent from the client
+// ID is sent from the client upon every request
 passport.deserializeUser((id, done) => {
 
     // check if user with given id exist in db
   User.findById(id).then(user => {
+    // attaching the user we find to req.user to redirect route
     done(null, user);
   });
 
